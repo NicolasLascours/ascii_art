@@ -3,7 +3,7 @@ from time import sleep
 
 
 # Direccion del archivo a leer
-name_folder = "ascii_art" # nombre de la carpeta donde están ubicados los archivos
+name_folder = input(' ingrese el nombre de la carpeta donde están ubicados los archivos: ')
 path_file_input = os.path.join(os.path.dirname(os.getcwd()), name_folder) 
 
 def show_file():
