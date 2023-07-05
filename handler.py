@@ -3,8 +3,9 @@ from time import sleep
 
 
 # Direccion del archivo a leer
-name_folder = input(' ingrese el nombre de la carpeta donde están ubicados los archivos: ')
-path_file_input = os.path.join(os.path.dirname(os.getcwd()), name_folder) 
+name_folder = input('Ingrese el nombre de la carpeta donde están ubicados los archivos: ')
+path_file_input = os.path.join(os.path.dirname(os.getcwd()), name_folder)
+
 
 def show_file():
     # Nombre del archivo a leer
@@ -14,16 +15,18 @@ def show_file():
 
     try:
         while True:
-        # Abro el archivo a leer y lo cargo  en 'data'
+            # Abro el archivo a leer y lo cargo en 'data'
             with open(os.path.join(path_file_input, name_input), encoding='utf_8') as data:
-                for line in data: # por cada linea de 'data'
-                    print(line)   # imprimo la linea
+                for line in data:  # por cada linea de 'data'
+                    centered_line = line.rstrip().center(os.get_terminal_size().columns)
+                    print(centered_line)  # imprimo la linea centrada
                     sleep(delay)  # momento de pausa
-        
+
     except FileNotFoundError:
         print('ERROR: No se ha encontrado el archivo.')
 
+
 if __name__ == '__main__':
-    
     show_file()
+
     
